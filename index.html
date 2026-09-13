@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>confusedvtg — เสื้อผ้าและรองเท้าผ้าใบมือสองคัดมือ กรุงเทพฯ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0d0c;
+    --paper:#ede6d8;
+    --paper-dim:#d9cfba;
+    --rust:#a8371e;
+    --olive:#565c45;
+    --stone:#726c62;
+    --font-display:'Anton', sans-serif;
+    --font-mono:'Space Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-mono);
+    font-size:15px;
+    line-height:1.6;
+    position:relative;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+    mix-blend-mode:multiply;
+    z-index:999;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;margin:0;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-mono);font-weight:700;font-size:13px;letter-spacing:.03em;
+    text-decoration:none;text-transform:uppercase;
+    padding:13px 22px;border:2px solid var(--ink);
+    background:var(--rust);color:var(--paper);
+    box-shadow:4px 4px 0 var(--ink);
+    cursor:pointer;
+    transition:transform .12s ease;
+  }
+  .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink);}
+  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.small{padding:9px 14px;font-size:11px;box-shadow:3px 3px 0 var(--ink);}
+  .tag-chip{
+    display:inline-block;
+    font-family:var(--font-mono);font-size:12px;
+    border:1px dashed var(--stone);
+    padding:5px 10px;
+    background:var(--paper);
+  }
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:var(--ink);color:var(--paper);
+    border-bottom:2px solid var(--rust);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--paper);}
+  .brand img{width:38px;height:38px;border-radius:50%;}
+  .brand span{font-family:var(--font-display);font-size:22px;letter-spacing:.02em;}
+  .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+  .nav-links a{text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:.04em;padding-bottom:3px;border-bottom:2px solid transparent;}
+  .nav-links a:hover{border-color:var(--rust);}
+  .burger{display:none;background:none;border:none;color:var(--paper);font-size:24px;cursor:pointer;}
+
+  /* HERO */
+  .hero{padding:70px 0 60px;}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:.98;}
+  .hero p.lede{max-width:46ch;margin:20px 0 26px;color:#2c2a26;}
+  .hero .tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-photo{
+    position:relative;
+    border:2px solid var(--ink);
+    box-shadow:8px 8px 0 var(--rust);
+    transform:rotate(1.4deg);
+    overflow:hidden;
+  }
+  .hero-photo img{aspect-ratio:4/5;object-fit:cover;}
+  .hero-photo .strip{
+    position:absolute;bottom:0;left:0;right:0;
+    background:var(--paper);border-top:2px dashed var(--ink);
+    padding:10px 14px;font-size:12px;display:flex;justify-content:space-between;
+  }
+
+  /* SECTION HEADERS */
+  .section{padding:70px 0;}
+  .section.alt{background:var(--ink);color:var(--paper);}
+  .section-head{margin-bottom:40px;max-width:60ch;}
+  .section-head h2{font-size:clamp(28px,4vw,42px);}
+  .section-head p{color:var(--stone);margin-top:10px;}
+  .section.alt .section-head p{color:var(--paper-dim);}
+
+  /* STORY */
+  .chapter{
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:center;
+    padding:36px 0;
+    border-bottom:1px dashed rgba(237,230,216,.35);
+  }
+  .chapter:last-child{border-bottom:none;}
+  .chapter:nth-child(even){grid-template-columns:1.15fr .85fr;}
+  .chapter:nth-child(even) .chapter-photo{order:2;}
+  .chapter-num{font-family:var(--font-display);font-size:14px;color:var(--rust);letter-spacing:.1em;margin-bottom:6px;display:block;}
+  .chapter h3{font-size:26px;margin-bottom:10px;}
+  .chapter p{color:var(--paper-dim);max-width:52ch;}
+  .chapter-photo img{border:2px solid var(--paper-dim);aspect-ratio:5/4;object-fit:cover;filter:grayscale(.15);}
+
+  /* FEATURES */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .feature-tag{
+    position:relative;
+    border:1.5px dashed var(--ink);
+    padding:28px 20px 22px;
+    background:var(--paper);
+  }
+  .feature-tag::before{
+    content:"";position:absolute;top:14px;left:14px;
+    width:10px;height:10px;border-radius:50%;
+    background:var(--paper);border:1.5px solid var(--ink);
+  }
+  .feature-tag h3{font-size:19px;margin:16px 0 10px 8px;}
+  .feature-tag p{margin:0 0 0 8px;color:#2c2a26;font-size:13.5px;}
+
+  /* MEMBER */
+  .member-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;}
+  .perk-card{
+    border:2px solid var(--ink);
+    background:var(--paper);
+    padding:26px;
+    position:relative;
+  }
+  .perk-card::after{
+    content:"";position:absolute;top:50%;right:-9px;transform:translateY(-50%);
+    width:16px;height:16px;border-radius:50%;background:var(--ink);
+  }
+  .perk-card ul{padding-left:18px;margin:14px 0 0;}
+  .perk-card li{margin-bottom:10px;}
+  form{display:grid;gap:14px;}
+  .field label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;color:var(--stone);}
+  .field input, .field select, .field textarea{
+    width:100%;
+    font-family:var(--font-mono);font-size:14px;
+    padding:11px 12px;
+    border:2px solid var(--ink);
+    background:var(--paper);color:var(--ink);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .checks{display:flex;flex-wrap:wrap;gap:10px 18px;}
+  .checks label{display:flex;align-items:center;gap:6px;font-size:13px;}
+  .confirm-msg{
+    display:none;
+    border:2px dashed var(--olive);
+    padding:14px 16px;
+    font-size:13px;
+    color:var(--olive);
+  }
+  .confirm-msg.show{display:block;}
+
+  /* SHOP */
+  .filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
+  .filter-btn{
+    font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:.03em;
+    padding:9px 16px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;
+  }
+  .filter-btn.active{background:var(--ink);color:var(--paper);}
+  .shop-note{font-size:13px;color:var(--stone);margin-bottom:26px;max-width:60ch;}
+  .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .product-card{
+    border:2px solid var(--ink);
+    background:var(--paper);
+    box-shadow:4px 4px 0 var(--ink);
+  }
+  .product-photo{position:relative;border-bottom:2px dashed var(--ink);}
+  .product-photo img{aspect-ratio:1/1;object-fit:cover;}
+  .grade{
+    position:absolute;top:8px;right:8px;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--rust);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;border:2px solid var(--ink);
+  }
+  .product-info{padding:14px 14px 16px;}
+  .product-info .cat{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--olive);}
+  .product-info h4{font-family:var(--font-mono);font-weight:700;font-size:13.5px;margin:5px 0 6px;line-height:1.3;}
+  .product-info .meta{font-size:11.5px;color:var(--stone);margin-bottom:10px;}
+  .product-info .price-row{display:flex;align-items:center;justify-content:space-between;}
+  .product-info .price{font-family:var(--font-display);font-size:19px;}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;}
+  .info-list{list-style:none;padding:0;margin:0;}
+  .info-list li{padding:16px 0;border-bottom:1px dashed rgba(237,230,216,.35);}
+  .info-list li:first-child{padding-top:0;}
+  .info-list h4{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--rust);margin-bottom:6px;}
+  .map-frame{margin-top:22px;border:2px solid var(--paper-dim);}
+  .map-frame iframe{width:100%;height:220px;border:0;filter:grayscale(.3) contrast(1.05);}
+
+  footer{background:var(--ink);color:var(--paper-dim);padding:40px 0 26px;border-top:2px solid var(--rust);}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-brand{display:flex;align-items:center;gap:10px;}
+  .footer-brand img{width:34px;height:34px;border-radius:50%;}
+  .footer-brand span{font-family:var(--font-display);font-size:18px;color:var(--paper);}
+  footer .copy{font-size:11.5px;margin-top:20px;color:var(--stone);}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-photo{order:-1;}
+    .chapter, .chapter:nth-child(even){grid-template-columns:1fr;}
+    .chapter:nth-child(even) .chapter-photo{order:0;}
+    .features{grid-template-columns:1fr;}
+    .member-grid, .contact-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--ink);
+      flex-direction:column;gap:0;
+      display:none;
+      border-bottom:2px solid var(--rust);
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{display:block;padding:14px 24px;border-bottom:1px dashed rgba(237,230,216,.2);}
+    .burger{display:block;}
+  }
+  @media (max-width:520px){
+    .product-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#home" class="brand">
+      <img src="logo.jpg" alt="confusedvtg logo">
+      <span>confusedvtg</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">หน้าแรก</a></li>
+      <li><a href="#story">เรื่องราว</a></li>
+      <li><a href="#shop">สินค้า</a></li>
+      <li><a href="#member">สมัครสมาชิก</a></li>
+      <li><a href="#contact">ติดต่อเรา</a></li>
+    </ul>
+    <button class="burger" id="burgerBtn" aria-label="เปิดเมนู">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <h1>ของมือสอง<br>แต่รสนิยม<br>ไม่มือสอง</h1>
+      <p class="lede">confusedvtg คัดเสื้อผ้าและรองเท้าผ้าใบมือสองทีละชิ้นจากตลาดนัดทั่วกรุงเทพฯ ซัก รีด เช็คของแท้ ก่อนส่งถึงตู้เสื้อผ้าของคุณ — ไม่มีของเหมือนกันสองชิ้นในร้าน</p>
+      <div class="tags">
+        <span class="tag-chip">มือสอง 100%</span>
+        <span class="tag-chip">คัดเอง ชิ้นต่อชิ้น</span>
+        <span class="tag-chip">เช็คของแท้ทุกคู่</span>
+      </div>
+      <div class="cta-row">
+        <a href="#shop" class="btn">ดูสินค้า</a>
+        <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn ghost">ทักไอจีสั่งซื้อ</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1697909624356-c98d29afe5b6?fm=jpg&q=70&w=900&auto=format&fit=crop" alt="ตู้โชว์รองเท้าและกระเป๋ามือสอง">
+      <div class="strip">
+        <span>LOT #0026</span>
+        <span>BKK, TH</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="story">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>จุดเริ่มต้นของเรา</h2>
+      <p>จากตู้เสื้อผ้าที่ล้นมือของเพื่อนสองคน สู่ร้านมือสองเล็กๆ ที่ยังตั้งใจคัดของทุกชิ้นเหมือนวันแรก</p>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-photo"><img src="https://images.unsplash.com/photo-1624192647570-1131acc12ccf?fm=jpg&q=70&w=800&auto=format&fit=crop" alt="เสื้อผ้าวินเทจแขวนราว"></div>
+      <div>
+        <span class="chapter-num">บทที่ 1</span>
+        <h3>เริ่มจากตู้เสื้อผ้าที่ล้นมือ</h3>
+        <p>ตอนแรกก็แค่ชอบซื้อเสื้อผ้ามือสองจนตู้ล้น เลยลองเอาชิ้นที่ไม่ได้ใส่มาลงขายในไอจีเล่นๆ ปรากฏว่ามีคนทักซื้อเยอะกว่าที่คิด เลยกลายเป็นร้านจริงจังตั้งแต่นั้นมา</p>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-photo"><img src="https://images.unsplash.com/photo-1578939662863-5cd416d45a69?fm=jpg&q=70&w=800&auto=format&fit=crop" alt="กางเกงยีนส์แขวนขายที่ตลาดนัด"></div>
+      <div>
+        <span class="chapter-num">บทที่ 2</span>
+        <h3>บุกตลาดนัดทุกเช้าวันเสาร์</h3>
+        <p>ทุกสัปดาห์เราจะไปเดินคัดของที่ตลาดนัดรถไฟและตลาดมือสองอื่นๆ ตั้งแต่เช้ามืด เลือกเอาเฉพาะชิ้นที่ทรงดี ผ้าดี และยังใส่ได้อีกนาน ไม่เน้นเยอะแต่เน้นของที่อยากใส่เองจริงๆ</p>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-photo"><img src="https://images.unsplash.com/photo-1669671943625-e20799ee5f42?fm=jpg&q=70&w=800&auto=format&fit=crop" alt="รองเท้าผ้าใบมือสองที่ผ่านการตรวจสอบ"></div>
+      <div>
+        <span class="chapter-num">บทที่ 3</span>
+        <h3>เช็คของแท้ทุกคู่ก่อนลงขาย</h3>
+        <p>รองเท้าผ้าใบทุกคู่ที่เข้าร้านจะถูกเช็คตำหนิ เช็คโครงสร้าง และเทียบรายละเอียดกับของแท้ก่อนถ่ายรูปลงขายเสมอ เพราะเรื่องนี้ต่อรองไม่ได้</p>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-photo"><img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?fm=jpg&q=70&w=800&auto=format&fit=crop" alt="เสื้อผ้ายีนส์ที่ผ่านการซักและรีดแล้ว"></div>
+      <div>
+        <span class="chapter-num">บทที่ 4</span>
+        <h3>ซัก รีด ซ่อมเล็กน้อย ก่อนถึงมือลูกค้า</h3>
+        <p>ก่อนลงขาย ทุกชิ้นจะผ่านการซักทำความสะอาด รีดให้เรียบ และซ่อมจุดเล็กๆ อย่างกระดุมหลุดหรือตะเข็บหลวม เพื่อให้พร้อมใส่ได้ทันทีที่แกะกล่อง</p>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="chapter-photo"><img src="https://images.unsplash.com/photo-1697909624356-c98d29afe5b6?fm=jpg&q=70&w=800&auto=format&fit=crop" alt="ร้านมือสองในปัจจุบัน"></div>
+      <div>
+        <span class="chapter-num">บทที่ 5</span>
+        <h3>วันนี้ยังเป็นร้านเล็กๆ ที่ตั้งใจเหมือนเดิม</h3>
+        <p>แม้จะมีลูกค้าประจำมากขึ้น แต่เรายังคัดของเองทุกชิ้น ตอบแชทเอง แพ็คของเอง จากห้องพักในกรุงเทพฯ เหมือนวันแรกที่เริ่มทำ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ทำไมต้องซื้อกับเรา</h2>
+      <p>สามข้อที่เราให้ความสำคัญกับทุกออเดอร์</p>
+    </div>
+    <div class="features">
+      <div class="feature-tag">
+        <h3>คัดมือทุกชิ้น</h3>
+        <p>ไม่มีการสั่งของยกล็อตมาขายต่อ ทุกชิ้นผ่านสายตาเราก่อนลงร้านเสมอ ของหมดคือหมด ไม่มีล็อตใหม่แบบเดิมมาทดแทน</p>
+      </div>
+      <div class="feature-tag">
+        <h3>เช็ครองเท้าของแท้</h3>
+        <p>รองเท้าผ้าใบทุกคู่ผ่านการตรวจสอบรายละเอียดก่อนลงขาย พร้อมแนบรูปจุดสำคัญให้ดูก่อนตัดสินใจซื้อ</p>
+      </div>
+      <div class="feature-tag">
+        <h3>ราคานักศึกษา</h3>
+        <p>ตั้งราคาจากมุมมองคนที่เพิ่งเป็นนักศึกษามาเหมือนกัน อยากแต่งตัวดีได้โดยไม่ต้องเก็บเงินทั้งเดือน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="member">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>สมัครสมาชิก confusedvtg</h2>
+      <p>สมัครฟรี ไม่มีค่าใช้จ่าย รับสิทธิพิเศษทันทีตั้งแต่ชิ้นแรก</p>
+    </div>
+    <div class="member-grid">
+      <div class="perk-card">
+        <h3 style="font-size:18px;">สิทธิสมาชิก</h3>
+        <ul>
+          <li>ส่วนลด 10% สำหรับสมาชิกใหม่ ใช้ได้ทันทีหลังสมัคร</li>
+          <li>แจ้งของเข้าใหม่ก่อนใครผ่าน LINE OA</li>
+          <li>สะสมยอดซื้อครบ 500 บาท แลกส่วนลด 50 บาท</li>
+          <li>ของเข้าไซซ์ที่ชอบ ทักแจ้งให้เป็นคนแรก</li>
+        </ul>
+      </div>
+      <div>
+        <form id="memberForm">
+          <div class="field">
+            <label for="mName">ชื่อ-นามสกุล</label>
+            <input type="text" id="mName" required>
+          </div>
+          <div class="field">
+            <label for="mNick">ชื่อเล่น</label>
+            <input type="text" id="mNick">
+          </div>
+          <div class="field">
+            <label for="mPhone">เบอร์โทรศัพท์</label>
+            <input type="tel" id="mPhone" required>
+          </div>
+          <div class="field">
+            <label for="mSize">ไซซ์ที่ใส่ประจำ</label>
+            <input type="text" id="mSize" placeholder="เช่น เสื้อ L / รองเท้า 41">
+          </div>
+          <div class="field">
+            <label>หมวดที่สนใจ</label>
+            <div class="checks">
+              <label><input type="checkbox" checked> เสื้อผ้า</label>
+              <label><input type="checkbox"> กางเกง/แจ็คเก็ต</label>
+              <label><input type="checkbox"> รองเท้าผ้าใบ</label>
+              <label><input type="checkbox"> ของแต่งกาย</label>
+            </div>
+          </div>
+          <button type="submit" class="btn">สมัครสมาชิก</button>
+          <div class="confirm-msg" id="memberConfirm">ยินดีต้อนรับสู่แก๊ง confusedvtg แล้ว เช็คข้อความจากไอจีเพื่อรับโค้ดส่วนลด 10%</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>สินค้า</h2>
+      <p>หน้านี้สำหรับดูตัวอย่างสินค้าเท่านั้น สนใจชิ้นไหนทักไอจีเพื่อเช็คสต๊อกจริงและสั่งซื้อ</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-btn active" data-cat="all">ทั้งหมด</button>
+      <button class="filter-btn" data-cat="clothes">เสื้อผ้า</button>
+      <button class="filter-btn" data-cat="bottoms">กางเกง/แจ็คเก็ต</button>
+      <button class="filter-btn" data-cat="sneakers">รองเท้าผ้าใบ</button>
+      <button class="filter-btn" data-cat="accessories">ของแต่งกาย</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+
+      <div class="product-card" data-cat="bottoms">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="เดนิมแจ็คเก็ตฟอกขาวมือสอง">
+          <span class="grade">A</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">กางเกง/แจ็คเก็ต</span>
+          <h4>เดนิมแจ็คเก็ตฟอกขาว ทรงคลาสสิก</h4>
+          <p class="meta">ไซซ์ M · สภาพเกรด A</p>
+          <div class="price-row">
+            <span class="price">฿690</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="bottoms">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1578939662863-5cd416d45a69?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="กางเกงยีนส์ทรง Wide Leg มือสอง">
+          <span class="grade">A</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">กางเกง/แจ็คเก็ต</span>
+          <h4>กางเกงยีนส์ทรง Wide Leg</h4>
+          <p class="meta">เอว 30 นิ้ว · สภาพเกรด A</p>
+          <div class="price-row">
+            <span class="price">฿450</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="sneakers">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1669671943625-e20799ee5f42?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="รองเท้าผ้าใบ New Balance มือสอง">
+          <span class="grade">A</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">รองเท้าผ้าใบ</span>
+          <h4>New Balance 990 มือสอง สภาพดี</h4>
+          <p class="meta">ไซซ์ 42 · สภาพเกรด A</p>
+          <div class="price-row">
+            <span class="price">฿1,290</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="sneakers">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1697909624356-c98d29afe5b6?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="รองเท้าผ้าใบ Nike Dunk Low วินเทจ">
+          <span class="grade">B</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">รองเท้าผ้าใบ</span>
+          <h4>Nike Dunk Low วินเทจ ลายพิเศษ</h4>
+          <p class="meta">ไซซ์ 40 · สภาพเกรด B</p>
+          <div class="price-row">
+            <span class="price">฿1,590</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="clothes">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1624192647570-1131acc12ccf?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="เสื้อยืดวินเทจลาย Band Tee">
+          <span class="grade">B</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">เสื้อผ้า</span>
+          <h4>เสื้อยืดวินเทจลาย Band Tee</h4>
+          <p class="meta">ไซซ์ L · สภาพเกรด B</p>
+          <div class="price-row">
+            <span class="price">฿350</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="clothes">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1624192647570-1131acc12ccf?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="เสื้อเชิ้ตลายฮาวายมือสอง">
+          <span class="grade">A</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">เสื้อผ้า</span>
+          <h4>เสื้อเชิ้ตลายฮาวายมือสอง</h4>
+          <p class="meta">ไซซ์ M · สภาพเกรด A</p>
+          <div class="price-row">
+            <span class="price">฿290</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="accessories">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1578939662863-5cd416d45a69?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="หมวกแก๊ปวินเทจลายทีม">
+          <span class="grade">B</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">ของแต่งกาย</span>
+          <h4>หมวกแก๊ปวินเทจลายทีมกีฬา</h4>
+          <p class="meta">Free Size · สภาพเกรด B</p>
+          <div class="price-row">
+            <span class="price">฿190</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-cat="accessories">
+        <div class="product-photo">
+          <img src="https://images.unsplash.com/photo-1697909624356-c98d29afe5b6?fm=jpg&q=70&w=500&auto=format&fit=crop" alt="กระเป๋าผ้าแคนวาสวินเทจ">
+          <span class="grade">B</span>
+        </div>
+        <div class="product-info">
+          <span class="cat">ของแต่งกาย</span>
+          <h4>กระเป๋าผ้าแคนวาสวินเทจ</h4>
+          <p class="meta">Free Size · สภาพเกรด B</p>
+          <div class="price-row">
+            <span class="price">฿250</span>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="btn small">ทักซื้อ</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>ติดต่อเรา</h2>
+      <p>ทักได้ทุกช่องทาง เราตอบเองทุกข้อความ</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <ul class="info-list">
+          <li>
+            <h4>จุดนัดรับของ</h4>
+            บูธที่ตลาดนัดรถไฟ กรุงเทพฯ ทุกวันเสาร์<br>
+            <span style="color:var(--stone);font-size:12px;">*กรุณาทักนัดเวลาล่วงหน้าทางไอจีก่อนเข้ามาดูของ</span>
+          </li>
+          <li>
+            <h4>เวลาตอบแชท</h4>
+            ทุกวัน 10:00 – 22:00 น.
+          </li>
+          <li>
+            <h4>โทรศัพท์ / LINE</h4>
+            09X-XXX-XXXX · LINE: @confusedvtg
+          </li>
+          <li>
+            <h4>อีเมล</h4>
+            hello@confusedvtg.demo
+          </li>
+          <li>
+            <h4>อินสตาแกรม</h4>
+            <a href="https://www.instagram.com/confusedvtg/" target="_blank">instagram.com/confusedvtg</a>
+          </li>
+        </ul>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=Talad%20Rot%20Fai%20Bangkok&output=embed" loading="lazy" title="แผนที่ตลาดนัดรถไฟ"></iframe>
+        </div>
+      </div>
+      <div>
+        <form id="contactForm">
+          <div class="field">
+            <label for="cName">ชื่อ</label>
+            <input type="text" id="cName" required>
+          </div>
+          <div class="field">
+            <label for="cEmail">อีเมล</label>
+            <input type="email" id="cEmail" required>
+          </div>
+          <div class="field">
+            <label for="cMsg">ข้อความ</label>
+            <textarea id="cMsg" required></textarea>
+          </div>
+          <button type="submit" class="btn">ส่งข้อความ</button>
+          <div class="confirm-msg" id="contactConfirm">ได้รับข้อความแล้ว ทีมงานจะทักกลับทางไอจีโดยเร็วที่สุด</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">
+        <img src="logo.jpg" alt="confusedvtg logo">
+        <span>confusedvtg</span>
+      </div>
+      <a href="https://www.instagram.com/confusedvtg/" target="_blank" class="tag-chip" style="color:var(--paper);border-color:var(--paper-dim);">@confusedvtg</a>
+    </div>
+    <p class="copy">© 2026 confusedvtg · โปรเจกต์นักศึกษา มหาวิทยาลัยกรุงเทพ · ข้อมูลสินค้าในเว็บนี้เป็นข้อมูลตัวอย่างเพื่อการนำเสนอ</p>
+  </div>
+</footer>
+
+<script>
+  // mobile nav
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // product filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const productCards = document.querySelectorAll('.product-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      productCards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
+    });
+  });
+
+  // member form
+  document.getElementById('memberForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('memberConfirm').classList.add('show');
+    this.reset();
+  });
+
+  // contact form
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('contactConfirm').classList.add('show');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
